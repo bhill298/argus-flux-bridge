@@ -1,0 +1,56 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build project",
+            "command": "cl.exe",
+            "args": [
+                "/I${workspaceFolder}\\src\\hidapi",
+                "/I${workspaceFolder}\\src\\argus_data_api",
+                "/O2",
+                "/EHsc",
+                "/GL",
+                "/Gy",
+                "/Oi",
+                "/nologo",
+                "/Fe${workspaceFolder}\\src\\argus_flux_bridge.exe",
+                "main.cpp",
+                "argus_data_api\\argus_monitor_data_accessor.cpp",
+                "hidapi\\hid.c",
+                "/link",
+                "/LTCG"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\src"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build the project."
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clean project",
+            "command": "del",
+            "args": [
+                "*.exe",
+                "*.pdb",
+                "*.ilk",
+                "*.obj",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\src"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Delete build files."
+        }
+    ],
+    "version": "2.0.0"
+}
